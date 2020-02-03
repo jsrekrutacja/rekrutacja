@@ -1,0 +1,72 @@
+POST http://blog.test/api/register
+Accept: application/json
+Content-Type: application/json
+Cookie: XDEBUG_SESSION=vagrant
+
+{
+  "name": "test",
+  "email": "test@example.org",
+  "password": "1234qwer",
+  "password_confirmation": "1234qwer",
+  "role": "admin"
+}
+
+###
+
+POST http://blog.test/api/login
+Accept: application/json
+Content-Type: application/json
+Cookie: XDEBUG_SESSION=vagrant
+
+{
+  "email": "test@example.org",
+  "password": "1234qwer"
+}
+> {%
+  client.global.set("token", response.body.token);
+%}
+###
+
+GET http://blog.test/api/logout
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+Cookie: XDEBUG_SESSION=vagrant
+
+###
+
+POST http://blog.test/api/password/forgot-password
+Accept: application/json
+Content-Type: application/json
+Cookie: XDEBUG_SESSION=vagrant
+
+{
+  "email": "test@example.org"
+}
+
+###
+
+POST http://blog.test/api/password/forgot-password
+Accept: application/json
+Content-Type: application/json
+Cookie: XDEBUG_SESSION=vagrant
+
+{
+  "email": "test@example.org"
+}
+
+###
+
+POST http://blog.test/api/password/reset
+Accept: application/json
+Content-Type: application/json
+Cookie: XDEBUG_SESSION=vagrant
+
+{
+  "token": "$2y$10$fual39g2uLpZ/vaomckyx.a0H9746YTDnIQb99A8LCsMkR94N7oIC",
+  "email": "test@example.org",
+  "password": "1234qwer1",
+  "password_confirmation": "1234qwer1"
+}
+
+###

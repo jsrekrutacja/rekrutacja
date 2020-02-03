@@ -1,0 +1,55 @@
+POST http://blog.test/api/users
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+Cookie: XDEBUG_SESSION=vagrant
+
+{
+  "name": "test3",
+  "email": "test3@example.org",
+  "password": "1234qwer",
+  "password_confirmation": "1234qwer",
+  "role": "admin"
+}
+
+###
+
+GET http://blog.test/api/users/10
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+Cookie: XDEBUG_SESSION=vagrant
+
+###
+
+GET http://blog.test/api/users
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+Cookie: XDEBUG_SESSION=vagrant
+
+###
+
+PUT http://blog.test/api/users/1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+Cookie: XDEBUG_SESSION=vagrant
+
+{
+  "name": "test5",
+  "email": "test5@example.org",
+  "password": "1234qwer",
+  "password_confirmation": "1234qwer",
+  "role": "admin"
+}
+
+###
+
+DELETE http://blog.test/api/users/11
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+Cookie: XDEBUG_SESSION=vagrant
+
+###

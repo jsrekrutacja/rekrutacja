@@ -1,0 +1,72 @@
+POST http://blog.test/api/posts
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+Cookie: XDEBUG_SESSION=vagrant
+
+{
+  "title": "test3 title",
+  "content": "test3 content"
+}
+
+###
+
+GET http://blog.test/api/posts/2
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+Cookie: XDEBUG_SESSION=vagrant
+
+###
+
+GET http://blog.test/api/posts
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+Cookie: XDEBUG_SESSION=vagrant
+
+###
+
+PUT http://blog.test/api/posts/1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+Cookie: XDEBUG_SESSION=vagrant
+
+{
+  "title": "test2 title",
+  "content": "test2 content"
+}
+
+###
+
+DELETE http://blog.test/api/posts/1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+Cookie: XDEBUG_SESSION=vagrant
+
+###
+
+POST http://blog.test/api/posts/media/2
+Accept: application/json
+Cache-Control: no-cache
+Authorization: Bearer {{token}}
+Cookie: XDEBUG_SESSION=vagrant
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="media[]"; filename="example.jpg"
+Content-Type: image/jpeg
+
+< ./example.jpg
+
+--WebAppBoundary
+Content-Disposition: form-data; name="media[]"; filename="example.jpg"
+Content-Type: image/jpeg
+
+< ./example.jpg
+
+--WebAppBoundary--
+
+###
